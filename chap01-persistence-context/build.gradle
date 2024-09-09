@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.kenny'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // jpa 인터페이스를 구현하는 구현체 중 하나인 하이버네이트
+    // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
+    implementation 'org.hibernate.orm:hibernate-core:6.6.0.Final'
+
+    // MariaDB 드라이버
+    // https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.4.1'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
