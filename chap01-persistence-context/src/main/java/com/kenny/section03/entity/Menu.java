@@ -63,6 +63,14 @@ public class Menu {
         this.menuName = menuName;
     }
 
+    public void setMenuPrice(int menuPrice) {
+        this.menuPrice = menuPrice;
+    }
+
+    public void setMenuCode(int menuCode) {
+        this.menuCode = menuCode;
+    }
+
     public String getMenuName() {
         return menuName;
     }
