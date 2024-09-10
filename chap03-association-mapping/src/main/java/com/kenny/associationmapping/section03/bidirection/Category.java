@@ -3,6 +3,7 @@ package com.kenny.associationmapping.section03.bidirection;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Entity(name = "section03Category")
 @Table(name = "tbl_category")
@@ -25,4 +26,7 @@ public class Category {
     public Category() {
     }
 
+    public List<Menu> getMenuList() {
+        return menuList;
+    }
 }

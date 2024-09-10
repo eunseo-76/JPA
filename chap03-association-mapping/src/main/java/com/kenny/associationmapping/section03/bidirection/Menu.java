@@ -22,4 +22,7 @@ public class Menu {
     public Menu() {
     }
 
+    public Category getCategory() {
+        return category;
+    }
 }

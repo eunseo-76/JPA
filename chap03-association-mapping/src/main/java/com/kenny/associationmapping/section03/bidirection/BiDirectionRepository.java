@@ -20,4 +20,6 @@ public class BiDirectionRepository {
     public Category findCategory(int categoryCode) {
         return entityManager.find(Category.class, categoryCode);
     }
+    // @transaction으로 묶어주지 않으면 여기서 한 번 실행되고 끝나기 때문에 세션이 닫혔다는 오류가 발생한다.
+
 }
