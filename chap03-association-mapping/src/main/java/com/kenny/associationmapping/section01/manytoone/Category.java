@@ -12,4 +12,14 @@ public class Category {
     private int categoryCode;   // pk 이자 fk
     private String categoryName;
     private Integer refCategoryCode;
+
+    public Category() {
+    }
+
+    // 매개 변수 생성자가 있으면 기본 생성자도 있어야
+    public Category(int categoryCode, String categoryName, Integer refCategoryCode) {
+        this.categoryCode = categoryCode;
+        this.categoryName = categoryName;
+        this.refCategoryCode = refCategoryCode;
+    }
 }

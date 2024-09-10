@@ -20,4 +20,8 @@ public class ManyToOneRepository {
 
         return entityManager.createQuery(jpql, String.class).setParameter("menuCode", menuCode).getSingleResult();
     }
+
+    public void regist(Menu menu) {
+        entityManager.persist(menu);
+    }
 }
