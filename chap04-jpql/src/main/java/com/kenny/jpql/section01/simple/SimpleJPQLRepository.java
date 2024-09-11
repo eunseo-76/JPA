@@ -56,17 +56,18 @@ public class SimpleJPQLRepository {
     // 11, 12 카테고리 코드를 가진 메뉴 목록 조회
     public List<Menu> selectUsingIn() {
         String jpql = "SELECT m FROM Section01Menu as m WHERE m.categoryCode IN (11, 12)";
-        TypedQuery<Menu> query = entityManager.createQuery(jpql, Menu.class);
-        List<Menu> resultMenuList = query.getResultList();
+        List<Menu> resultMenuList = entityManager.createQuery(jpql, Menu.class).getResultList();    // 이거나 아래나 동일
+//        TypedQuery<Menu> query = entityManager.createQuery(jpql, Menu.class);
+//        List<Menu> resultMenuList = query.getResultList();
         return resultMenuList;
     }
     // "마늘" 이라는 문자열이 메뉴명에 포함되는 메뉴 목록 조회
     public List<Menu> selectUsingLike() {
-        String jpql = "SELECT m FROM Section01Menu as m WHERE m.menuName LIKE CONCAT('%', '마늘', '%')";
+        String jpql = "SELECT m FROM Section01Menu as m WHERE m.menuName LIKE '%마늘%'";
         TypedQuery<Menu> query = entityManager.createQuery(jpql, Menu.class);
         List<Menu> resultMenuList = query.getResultList();
         return resultMenuList;
     }
 
-
 }
+
