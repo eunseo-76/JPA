@@ -12,3 +12,6 @@ spring:
     hibernate:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy # ?? camelcase, db underscore? ???? ???? @Column(name="****")? ?? ????.
+    mapping-resources:
+      - section08/namedquery/menu-query.xml
+     # ???? ?? ? ?? ??
