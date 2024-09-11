@@ -4,6 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class GroupFunctionRepository {
 
@@ -28,5 +30,12 @@ public class GroupFunctionRepository {
                 .getSingleResult();
 
         return sumMenuPrice;
+    }
+
+    public List<Object[]> selectByGroupByHaving(long minPrice) {
+        String jpql = "SELECT m.categoryCode, SUM(m.menuPrice) FROM Section05Menu m " + // categoryCode와 SUM을 별도의 타입으로 선언할 수도 있지만 여기서는 Object로 다룬다
+                "GROUP BY m.categoryCode HAVING SUM(m.menuPrice) > :minPrice";  // 메뉴 엔터티를 카테고리 코드 기준으로 그루핑한 후, 메뉴 가격의 합이 얼마 이상인 경우만 조회
+
+        return entityManager.createQuery(jpql).setParameter("minPrice", minPrice).getResultList();
     }
 }

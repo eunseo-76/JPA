@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
@@ -38,4 +40,22 @@ class GroupFunctionRepositoryTest {
                 }
         );
     }
+
+    @DisplayName("Having절 조회 테스트")
+    @Test
+    void testSelectByGroupByHaving() {
+        long minPrice = 50000L;
+        List<Object[]> sumPriceOfCategoryList = groupFunctionRepository.selectByGroupByHaving(minPrice);
+        assertNotNull(sumPriceOfCategoryList);
+        sumPriceOfCategoryList.forEach(
+                row -> {
+                    for (Object column : row) {
+                        System.out.print(column + " ");
+                    }
+                    System.out.println();
+                }
+        );
+    }
+
+
 }
